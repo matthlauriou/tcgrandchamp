@@ -1,0 +1,8 @@
+RewriteEngine On
+
+	## http -> https
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L,NE,QSA]
+
+	## Redirection vers page de maintenance
+RewriteRule .* www/maintenance.html
